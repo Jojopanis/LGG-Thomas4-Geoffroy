@@ -143,3 +143,4 @@ cython_debug/
 *.DS_Store
 *.idea
 content/projects/archive/wikipedia_scraper/leaders.json
+__pycache__/
