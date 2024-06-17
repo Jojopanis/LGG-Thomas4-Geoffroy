@@ -1,5 +1,6 @@
 import random
 import os
+from utils.ascii_art import draw
 
 class Hangman():
     """
@@ -23,10 +24,13 @@ class Hangman():
 
         suggested_letters = self.correctly_guessed_letters + self.wrongly_guessed_letters
         guess = input("Take your guess : ")
-        while len(guess) != 1 or guess.isalpha() == False:
-            guess = input("Wrong format, please only select one letter : ")
-        while guess in self.wrongly_guessed_letters + self.correctly_guessed_letters:
-            guess = input("Letter already selected, please choose another : ")
+        while True:
+            if len(guess) != 1 or guess.isalpha() == False:
+                guess = input("Wrong format, please only select one letter : ")
+            elif guess in suggested_letters:
+                guess = input("Letter already selected, please choose another : ")
+            else:
+                break
         if guess in self.word_to_find:
             suggested_letters.append(guess)
             self.correctly_guessed_letters = [x if x in suggested_letters else "_" for x in self.word_to_find]
@@ -55,6 +59,7 @@ class Hangman():
         Main loop of the game
         """
         os.system('cls||clear')
+        draw(1)
         print(f"{" ".join(self.correctly_guessed_letters)}")
         while True:
             if self.lives == 0:
@@ -67,5 +72,6 @@ class Hangman():
                 self.play()
             self.turn_count += 1
             os.system('cls||clear')
+            draw(self.error_count+1)
             print(f"{" ".join(self.correctly_guessed_letters)}\nBad letters : {" ".join(self.wrongly_guessed_letters)}\nLives : {self.lives} | Errors : {self.error_count} | Turn : {self.turn_count}")
     pass
