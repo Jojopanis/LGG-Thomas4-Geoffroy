@@ -12,7 +12,7 @@ class Hangman():
             self.possible_words = ['becode', 'learning', 'mathematics', 'sessions']
         else:
             self.possible_words = word_list
-        self.word_to_find = [x for x in self.possible_words[random.randrange(len(self.possible_words))+1]]
+        self.word_to_find = [x for x in self.possible_words[random.randrange(len(self.possible_words)+1)]]
         self.lives = 5
         self.wrongly_guessed_letters = []
         self.correctly_guessed_letters = ["_" for x in self.word_to_find]
