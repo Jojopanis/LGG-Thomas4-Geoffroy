@@ -112,6 +112,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+wikipedia_scraper_venv/
 
 # Spyder project settings
 .spyderproject
