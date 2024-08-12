@@ -65,6 +65,6 @@ if province:
     col1, col2 = st.columns(2)
     col1.selectbox('Kitchen', ['Installed', 'Hyper-equipped', 'Semi-equipped', 'Not installed'], index=None)
     col2.selectbox('State of building', ['New', 'Good', 'To be renovated', 'Just renovated', 'To renovate'], index=None)
-    st.select_slider('Energy performance', ['G','F','E','D','C','B','A'], value=('D'))
+    st.select_slider('Energy performance', ['G','F','E','D','C','B','A'], value=('B'))
 
 
